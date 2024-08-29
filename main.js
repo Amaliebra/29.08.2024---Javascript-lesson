@@ -9,7 +9,10 @@ const currentTemperature =
 const currentWindSpeed =
   data.properties.timeseries[0].data.instant.details.wind_speed;
 const currentWeather =
-  data.properties.timeseries[0].data.next_1_hours.summary.symbol_code;
+  data.properties.timeseries[0].data.instant.details.summary;
+const currentUvi =
+  data.properties.timeseries[0].data.instant.details
+    .ultraviolet_index_clear_sky;
 console.log(data);
 
 //Find weather widget
@@ -17,8 +20,10 @@ console.log(data);
 const temperatureDisplay = document.getElementById("temperature");
 const windSpeedDisplay = document.getElementById("wind-speed");
 const weatherDisplay = document.getElementById("Weather");
+const uviDisplay = document.getElementById("UV-radiation");
 //Oppdate  html element with the data
 
 temperatureDisplay.textContent = currentTemperature;
 windSpeedDisplay.textContent = currentWindSpeed;
 weatherDisplay.textContent = currentWeather;
+uviDisplay.textContent = currentUvi;
